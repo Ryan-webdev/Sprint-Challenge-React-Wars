@@ -7,7 +7,6 @@ import axios from 'axios';
 // function to get the data from the axios api and out put it on the screen from the Character.js file
 function CharList (){
     //consoling axios to look through the starwars api
-    console.log(axios.get('https://swapi.py4e.com/api/people/'))
 
     // stating the state of the data
     const [data, setData] = useState([])
@@ -19,14 +18,17 @@ function CharList (){
             setData(res.data.results);
             console.log(setData(res.data.results));
         })
+
+        
     }, [])
 
+        //returns the data from the api. Loops through all the data points and outputs the data to the card attribute.
     return(
         <div>
             <div>
                 {data.map(char => {
                     return(
-                        <Characters card={char} key={char.name}/>
+                        <Characters card={char}/>
                     );
                 })}
             </div>
